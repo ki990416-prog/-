@@ -73,6 +73,17 @@ export default function Home() {
             </a>
           </Col>
         </Row>
+
+        <div className="peace-link mt-4 d-flex flex-wrap align-items-center justify-content-between gap-3 rounded-3 p-3">
+          <div>
+            <div className="fw-bold">노래로 마음이 닿았다면, 직접 찾아가 보세요</div>
+            <div className="small text-muted">제주4·3평화재단 공식 홈페이지에서 기념 시설과 관람 안내, 자료를 볼 수 있어요.</div>
+          </div>
+          <a className="btn btn-primary" href="https://jeju43peace.or.kr/" target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-flower1 me-1" />제주4·3평화공원 홈페이지
+            <i className="bi bi-box-arrow-up-right ms-2 small" />
+          </a>
+        </div>
       </section>
 
       <h5 className="fw-bold mb-3"><i className="bi bi-clipboard-check me-2" />동작 체크</h5>
