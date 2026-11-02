@@ -19,9 +19,10 @@ export const hasCoord = (p) => {
 function Fit({ places, focusId, markers }) {
   const map = useMap()
   useEffect(() => {
-    if (places.length === 0) return map.setView(JEJU, 9)
-    if (places.length === 1) return map.setView([Number(places[0].lat), Number(places[0].lng)], 13)
-    map.fitBounds(places.map((p) => [Number(p.lat), Number(p.lng)]), { padding: [40, 40], maxZoom: 13 })
+    // ※ effect 안에서 `return map.setView(...)` 처럼 값을 돌려주면 React 가 오류를 내므로 return 하지 않습니다
+    if (places.length === 0) map.setView(JEJU, 9)
+    else if (places.length === 1) map.setView([Number(places[0].lat), Number(places[0].lng)], 13)
+    else map.fitBounds(places.map((p) => [Number(p.lat), Number(p.lng)]), { padding: [40, 40], maxZoom: 13 })
   }, [places, map])
   useEffect(() => {
     const m = markers.current[focusId]
