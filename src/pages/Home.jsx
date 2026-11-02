@@ -28,11 +28,10 @@ export default function Home() {
 
   return (
     <>
-      {/* TODO: 자신의 주제·기획 의도로 바꾸세요 */}
       <section className="hero rounded-4 p-4 p-md-5 mb-4">
-        <Badge bg="light" text="dark" className="mb-3">제주 콘텐츠·문화 IP</Badge>
-        <h1 className="fw-bold">나의 제주 IP 서비스 이름</h1>
-        <p className="lead">누구를 위해, 어떤 제주 이야기를, 어떤 데이터로 보여주는지 한 줄로 적어 보세요.</p>
+        <Badge bg="light" text="dark" className="mb-3">제주 다크 투어리즘</Badge>
+        <h1 className="fw-bold">기억의 길 · 제주</h1>
+        <p className="lead">제주의 아픈 역사 현장을 존중하는 마음으로 찾아가는, 공공데이터 기반 AI 해설 가이드</p>
         <WeatherBadge place="서귀포시" />
       </section>
 

@@ -2,7 +2,7 @@
 body { font-family: 'Pretendard', system-ui, sans-serif; background: var(--bs-tertiary-bg); }
 
 .hero {
-  background: linear-gradient(135deg, var(--bs-primary), var(--bs-info));
+  background: linear-gradient(135deg, #0f172a, #3b2f4a 60%, var(--bs-primary));
   color: #fff;
 }
 .hero h1, .hero .lead { color: #fff; }

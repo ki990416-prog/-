@@ -24,7 +24,7 @@ export default function Heritage() {
 
   return (
     <>
-      <PageHeader icon="bank" title="국가유산" subtitle="국가유산청 국가유산 검색" />
+      <PageHeader icon="journal-text" title="역사 자료" subtitle="국가유산청 국가유산 검색" />
       <Form onSubmit={search} className="mb-4">
         <InputGroup>
           <Form.Control value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="예: 관덕정, 돌하르방" />

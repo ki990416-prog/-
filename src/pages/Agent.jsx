@@ -18,7 +18,7 @@ export default function Agent() {
 
   return (
     <>
-      <PageHeader icon="robot" title="AI 가이드" subtitle="공공데이터 API를 도구로 쓰는 에이전트" />
+      <PageHeader icon="robot" title="AI 해설사" subtitle="공공데이터 API를 도구로 쓰는 에이전트" />
       <Card className="chat-box mb-3">
         <Card.Body>
           {messages.length === 0 && <div className="text-muted">예) 내일 서귀포에 비 오면 해녀 문화를 볼 수 있는 실내 장소 추천해줘</div>}

@@ -27,7 +27,7 @@ export default function Places() {
 
   return (
     <>
-      <PageHeader icon="geo-alt" title="관광·문화" subtitle="한국관광공사 TourAPI" />
+      <PageHeader icon="geo-alt" title="기억의 장소" subtitle="한국관광공사 TourAPI" />
       <Form onSubmit={search} className="mb-4">
         <InputGroup>
           <Form.Select value={type} onChange={(e) => setType(e.target.value)} style={{ maxWidth: 140 }}>
