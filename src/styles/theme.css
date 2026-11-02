@@ -12,9 +12,9 @@ body { font-family: 'Pretendard', system-ui, sans-serif; background: var(--bs-bo
 .item-card-img { height: 160px; object-fit: cover; }
 .placeholder-img {
   display: flex; align-items: center; justify-content: center;
-  background: var(--bs-secondary-bg); color: var(--bs-secondary-color); font-size: 2rem;
+  background: rgba(255, 255, 255, .06); color: rgba(255, 255, 255, .4); font-size: 2rem;
 }
 
 .chat-box .msg { max-width: 80%; padding: .6rem .9rem; border-radius: 1rem; margin-bottom: .5rem; }
-.chat-box .msg.assistant { background: var(--bs-secondary-bg); }
+.chat-box .msg.assistant { background: rgba(255, 255, 255, .08); } /* darkly 의 --bs-secondary-bg 는 밝은 색이라 반투명 흰색 사용 */
 .chat-box .msg.user { background: var(--bs-primary); color: #fff; margin-left: auto; }
