@@ -1,4 +1,4 @@
-/* 연표 — 연두 세로선 위에 시대별 색 점 (4·3은 동백 다홍) */
+/* 연표 — 연두 세로선 위에 시대별 색 점 (4·3은 동백 다홍, 기억과 회복은 하늘색) */
 .tl-list { list-style: none; margin: 0; padding: 0 0 0 1.4rem; position: relative; }
 .tl-list::before { content: ''; position: absolute; left: .45rem; top: .5rem; bottom: .5rem; width: 3px; background: var(--leaf); opacity: .45; border-radius: 2px; }
 
@@ -7,7 +7,8 @@
   content: ''; position: absolute; left: -1.4rem; top: .55rem; width: 1rem; height: 1rem;
   background: var(--dot); border: 3px solid var(--paper); border-radius: 50%; box-shadow: 0 0 0 1px var(--dot);
 }
-.tl-p43, .tl-after { --dot: var(--camellia); }
+.tl-p43 { --dot: var(--camellia); }
+.tl-after { --dot: var(--sky); }          /* 기억과 회복: 화해·상생 = 하늘색 */
 .tl-colonial { --dot: #7a8450; }
 .tl-joseon { --dot: var(--leaf-dark); }
 

@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, Toast, ToastContainer } from 'react-bootstrap'
 import { NAV_ITEMS } from '../router'
 import { useAppStore } from '../store/useAppStore'
 import StatusBar from '../components/StatusBar'
+import logoMark from '../assets/logo-mark.webp'
 
 export default function RootLayout() {
   const toasts = useAppStore((s) => s.toasts)
@@ -13,7 +14,8 @@ export default function RootLayout() {
       <Navbar expand="md" collapseOnSelect sticky="top" className="camellia-nav">
         <Container>
           <Navbar.Brand as={NavLink} to="/">
-            <i className="bi bi-signpost-2 me-2" />기억의 길 · 제주
+            <img src={logoMark} alt="" className="brand-mark" />
+            <span>기억의 길 · 제주</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="main-nav" />
           <Navbar.Collapse id="main-nav">

@@ -21,8 +21,8 @@ export default function NewsSection() {
   }, [topic])
 
   return (
-    <section className="mb-5">
-      <h5 className="fw-bold"><i className="bi bi-newspaper me-2" />제주 역사 뉴스</h5>
+    <section className="mb-5 news-section">
+      <h5 className="fw-bold sky-title"><i className="bi bi-newspaper me-2" />제주 역사 뉴스</h5>
       <p className="small text-muted mb-2">
         외부 언론사 기사의 제목만 모아 보여 줍니다. 기사 내용과 논조는 각 언론사의 것이며 이 서비스의 입장이 아닙니다.
       </p>
@@ -54,7 +54,7 @@ export default function NewsSection() {
           ))}
         </ListGroup>
       )}
-      <div className="small text-muted mt-2">출처: 구글 뉴스 검색 결과 · 누르면 해당 언론사 기사로 이동합니다.</div>
+      <div className="small text-muted mt-2 news-note">출처: 구글 뉴스 검색 결과 · 누르면 해당 언론사 기사로 이동합니다.</div>
     </section>
   )
 }

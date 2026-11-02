@@ -26,6 +26,7 @@ export default function Home() {
       <section className="hero rounded-4 p-4 p-md-5 mb-4">
         <Badge bg="light" text="dark" className="mb-3">제주 다크 투어리즘</Badge>
         <h1 className="fw-bold">기억의 길 · 제주</h1>
+        <p className="hero-slogan">기억하고 · <b>화해하고</b> · 함께 가는 제주</p>
         <p className="lead">제주의 아픈 역사 현장을 존중하는 마음으로 찾아가는, 공공데이터 기반 AI 해설 가이드</p>
         <WeatherBadge place="서귀포시" />
       </section>
