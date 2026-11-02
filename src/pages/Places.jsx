@@ -3,6 +3,7 @@ import { Alert, Badge, Button, Col, Form, InputGroup, Row } from 'react-bootstra
 import PageHeader from '../components/PageHeader'
 import ItemCard from '../components/ItemCard'
 import { Empty, ErrorAlert, Loading } from '../components/Status'
+import WeatherNote from '../components/WeatherNote'
 import { fetchPlaces } from '../api/client'
 import { useAppStore } from '../store/useAppStore'
 
@@ -38,6 +39,7 @@ export default function Places() {
         <i className="bi bi-heart me-2" />
         이곳들은 관광지이기 전에 <b>추모와 기억의 공간</b>입니다. 조용히, 존중하는 마음으로 방문해 주세요.
       </Alert>
+      <WeatherNote />
       <Form onSubmit={search} className="mb-2">
         <InputGroup>
           <Form.Select value={type} onChange={(e) => setType(e.target.value)} style={{ maxWidth: 140 }}>

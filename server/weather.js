@@ -17,7 +17,8 @@ function baseDateTime() {
 }
 
 export async function getWeather({ place = '제주시' } = {}) {
-  const [nx, ny] = GRID[place] ?? GRID['제주시'];
+  if (!GRID[place]) place = '제주시'; // 모르는 지역이면 제주시로 (이름도 제주시로 표시)
+  const [nx, ny] = GRID[place];
   const params = new URLSearchParams({
     serviceKey: process.env.DATA_GO_KR_KEY,
     dataType: 'JSON', numOfRows: '300', pageNo: '1',
@@ -35,7 +36,11 @@ export async function getWeather({ place = '제주시' } = {}) {
     const key = `${it.fcstDate} ${it.fcstTime}`;
     (slots[key] ??= {})[it.category] = it.fcstValue;
   }
-  return Object.entries(slots).slice(0, 6).map(([time, v]) => ({
+  // 발표시각 이후 예보는 이미 지난 시각부터 시작하므로, 지금 시각(KST) 이후 것만 남김
+  const kst = new Date(Date.now() + 9 * 3600e3);
+  const now = kst.toISOString().slice(0, 10).replaceAll('-', '') + ' ' + String(kst.getUTCHours()).padStart(2, '0') + '00';
+  const upcoming = Object.entries(slots).filter(([time]) => time >= now);
+  return (upcoming.length ? upcoming : Object.entries(slots)).slice(0, 6).map(([time, v]) => ({
     place, time, temp: Number(v.TMP), sky: SKY[v.SKY] ?? v.SKY,
     rain: PTY[v.PTY] ?? v.PTY, pop: Number(v.POP), // pop = 강수확률(%)
   }));
