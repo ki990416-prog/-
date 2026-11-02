@@ -7,7 +7,19 @@ import WeatherBadge from '../components/WeatherBadge'
 import YouTubeEmbed from '../components/YouTubeEmbed'
 
 // 홈에 소개하는 노래 (제작자 본인 채널의 영상)
-const SONG = { id: 'JPj0s9kb2sM', title: '네 글자로 🌴 | 이루기 힘든 두 글자, 그 너머의 네 글자' }
+const SONG = {
+  id: 'JPj0s9kb2sM',
+  title: '네 글자로 🌴 | 이루기 힘든 두 글자, 그 너머의 네 글자',
+  // 영상 설명의 앞부분 (직접 쓴 가사/소개)
+  intro: ['얼마나 바람이 불었기에 불이 꺼지지 않았을까.', '얼마나 많은 슬픔이 있었기에 비는 계속 내렸을까.', '우리는 왜 이리 작고, 왜 이리 흔들릴까.'],
+  closing: '그대, 너무 울지 말아요. 이 노래가 함께할게요.',
+  credits: [
+    ['music-note-list', '장르 · 레게'],
+    ['pencil', '작사 · 가드너'],
+    ['stars', '「No Woman, No Cry」에서 영감'],
+    ['robot', 'AI 작곡 툴을 활용해 제작'],
+  ],
+}
 
 // 홈 = 기획 소개 + "동작 체크" 대시보드
 // STEP 0~1 에서 이 화면의 체크가 모두 초록색이 되어야 다음 단계로 넘어갑니다.
@@ -46,8 +58,16 @@ export default function Home() {
           </Col>
           <Col lg={5}>
             <h5 className="fw-bold"><i className="bi bi-music-note-beamed me-2" />기억의 노래</h5>
-            <p className="mb-2">4·3을 주제로 직접 만든 노래예요. 영상을 눌러 들어 보세요.</p>
-            <p className="small text-muted mb-3">{SONG.title}</p>
+            <p className="small text-muted mb-2">{SONG.title}</p>
+            <blockquote className="song-quote">
+              {SONG.intro.map((line) => <div key={line}>{line}</div>)}
+              <div className="mt-2 fw-bold">{SONG.closing}</div>
+            </blockquote>
+            <div className="d-flex flex-wrap gap-2 mb-3">
+              {SONG.credits.map(([icon, text]) => (
+                <Badge key={text} bg="dark" className="border fw-normal"><i className={`bi bi-${icon} me-1`} />{text}</Badge>
+              ))}
+            </div>
             <a className="btn btn-sm btn-outline-light" href={`https://youtu.be/${SONG.id}`} target="_blank" rel="noopener noreferrer">
               <i className="bi bi-youtube me-1" />유튜브에서 보기
             </a>

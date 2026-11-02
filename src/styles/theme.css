@@ -7,6 +7,9 @@ body { font-family: 'Pretendard', system-ui, sans-serif; background: var(--bs-bo
 }
 .hero h1, .hero .lead { color: #fff; }
 
+/* 노래 소개 가사 인용 */
+.song-quote { border-left: 3px solid #c9a24a; padding: .2rem 0 .2rem .9rem; margin: 0 0 1rem; color: rgba(255,255,255,.85); font-size: .92rem; line-height: 1.7; }
+
 /* 유튜브 썸네일(누르면 영상 재생) */
 .yt-facade { padding: 0; border: 0; background: #000; cursor: pointer; display: block; } /* position 은 .ratio > * 가 absolute 로 지정 */
 .yt-facade img { width: 100%; height: 100%; object-fit: cover; opacity: .9; transition: opacity .2s, transform .3s; }
