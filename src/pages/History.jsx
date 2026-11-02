@@ -3,6 +3,7 @@ import { Alert, Badge, Button, Form, InputGroup } from 'react-bootstrap'
 import PageHeader from '../components/PageHeader'
 import BookShelf from '../components/BookShelf'
 import OpenBook from '../components/OpenBook'
+import Timeline from '../components/Timeline'
 import { Empty, ErrorAlert, Loading } from '../components/Status'
 import { fetchHistory } from '../api/client'
 import { useAppStore } from '../store/useAppStore'
@@ -14,6 +15,7 @@ export default function History() {
   const [keyword, setKeyword] = useState('')
   const [list, setList] = useState([])
   const [category, setCategory] = useState('전체')
+  const [view, setView] = useState('timeline')  // 'timeline' 연표 | 'shelf' 책장
   const [open, setOpen] = useState(null)        // 펼친 책
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -32,7 +34,17 @@ export default function History() {
 
   return (
     <>
-      <PageHeader icon="journal-text" title="역사 자료" subtitle="제주특별자치도 역사자료 정보 — 책장에서 옛 기록을 꺼내 보세요" />
+      <PageHeader icon="journal-text" title="역사 자료" subtitle="연표로 큰 흐름을 보고, 책장에서 옛 기록을 꺼내 보세요" />
+      <div className="d-flex gap-2 mb-3" role="group" aria-label="보기 방식">
+        <Button variant={view === 'timeline' ? 'primary' : 'outline-primary'} aria-pressed={view === 'timeline'} onClick={() => setView('timeline')}>
+          <i className="bi bi-clock-history me-1" />연표
+        </Button>
+        <Button variant={view === 'shelf' ? 'primary' : 'outline-primary'} aria-pressed={view === 'shelf'} onClick={() => setView('shelf')}>
+          <i className="bi bi-bookshelf me-1" />옛 문헌 책장
+        </Button>
+      </div>
+
+      {view === 'timeline' ? <Timeline /> : <>
       <Alert variant="secondary" className="small">
         <i className="bi bi-info-circle me-2" />
         탐라순력도, 조선왕조실록 등 <b>옛 기록과 문헌</b>(유배 기록 포함)의 소개를 제공합니다. 책등을 눌러 책을 펼쳐 보세요. 4·3 관련 자료는 포함되어 있지 않아요.
@@ -62,6 +74,7 @@ export default function History() {
       {loading ? <Loading /> : shown.length === 0 ? <Empty text="꽂힌 책이 없어요" /> : (
         <BookShelf books={shown} onOpen={setOpen} />
       )}
+      </>}
 
       {open && (
         <OpenBook book={open} onClose={() => setOpen(null)}
