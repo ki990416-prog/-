@@ -36,6 +36,13 @@ export default function History() {
       <Alert variant="secondary" className="small">
         <i className="bi bi-info-circle me-2" />
         탐라순력도, 조선왕조실록 등 <b>옛 기록과 문헌</b>(유배 기록 포함)의 소개를 제공합니다. 책등을 눌러 책을 펼쳐 보세요. 4·3 관련 자료는 포함되어 있지 않아요.
+        <div className="mt-2">
+          4·3 기록은{' '}
+          <a href="http://43archives.or.kr/" target="_blank" rel="noopener noreferrer" className="fw-bold">
+            제주4·3 아카이브(제주4·3평화재단)<i className="bi bi-box-arrow-up-right ms-1 small" />
+          </a>
+          에서 볼 수 있어요. <span className="text-muted">(보안 연결 없이 열리는 사이트입니다)</span>
+        </div>
       </Alert>
       <Form onSubmit={search} className="mb-2">
         <InputGroup>

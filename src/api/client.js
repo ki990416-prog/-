@@ -35,5 +35,9 @@ export const fetchHeritage = (keyword = '') =>
 export const fetchHistory = (keyword = '') =>
   get(`/api/history?keyword=${encodeURIComponent(keyword)}`)
 
+// 제주 역사 뉴스 (홈)
+export const fetchNews = (topic = '') =>
+  get(`/api/news?topic=${encodeURIComponent(topic)}`)
+
 // STEP 6: 에이전트
 export const askAgent = (message, history) => post('/api/agent', { message, history })

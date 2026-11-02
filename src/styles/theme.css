@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); }
 .form-control:focus, .form-select:focus { border-color: var(--camellia); box-shadow: 0 0 0 .2rem rgba(var(--camellia-rgb), .18); }
 .card { background: #fff; border-color: var(--bs-border-color); }
 .alert-secondary { background: var(--leaf-soft); border-color: #d9e6c3; color: var(--ink); }
+.alert-secondary a:not(.btn) { color: var(--camellia-dark); text-decoration: underline; }   /* flatly 가 상자 안 링크를 흰색으로 만듦 */
 
 /* 메뉴·푸터 */
 .camellia-nav { background: #fff; border-bottom: 3px solid var(--leaf); }
@@ -53,9 +54,20 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); }
 .camellia-footer { background: var(--leaf-soft); border-top: 1px solid var(--bs-border-color); }
 
 /* 첫 화면 — 붉은 동백에서 짙은 잎 색으로 */
+/* 첫 화면 — 제주 동백(돌담·한라산) 사진 위에, 글자가 읽히도록 왼쪽을 짙은 초록으로 덮음 */
 .hero {
-  background: linear-gradient(135deg, #6aa534 0%, var(--leaf) 50%, var(--leaf-dark) 100%);
+  background:
+    linear-gradient(90deg, rgba(24, 52, 18, .88) 0%, rgba(24, 52, 18, .68) 45%, rgba(24, 52, 18, .12) 100%),
+    url('../assets/camellia-jeju.webp') center 35% / cover no-repeat,
+    var(--leaf-dark);
   color: #fff;
+  min-height: 300px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+}
+.hero h1 { text-shadow: 0 1px 8px rgba(0, 0, 0, .35); }
+.hero .lead { max-width: 34rem; text-shadow: 0 1px 6px rgba(0, 0, 0, .35); }
+@media (max-width: 575.98px) {
+  .hero { background-position: 70% 35%; min-height: 260px; }
 }
 .hero h1, .hero .lead { color: #fff; }
 
