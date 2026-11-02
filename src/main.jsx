@@ -3,10 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
 // ── 디자인 ───────────────────────────────────────────────
-// Bootstrap 5 + Bootswatch 테마. 아래 'darkly' 한 단어만 바꾸면 앱 전체 디자인이 바뀝니다.
-// 추천: minty(민트) · lux(고급) · flatly(깔끔) · cosmo(밝음) · journal · sketchy(손그림) · darkly(다크)
+// Bootstrap 5 + Bootswatch 'flatly'(밝은 바탕) 위에, theme.css 에서 동백(4·3의 상징꽃) 색으로 덧칠합니다.
 // 테마 미리보기: https://bootswatch.com
-import 'bootswatch/dist/darkly/bootstrap.min.css'
+import 'bootswatch/dist/flatly/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './styles/theme.css'
 

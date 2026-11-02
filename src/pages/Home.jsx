@@ -65,10 +65,10 @@ export default function Home() {
             </blockquote>
             <div className="d-flex flex-wrap gap-2 mb-3">
               {SONG.credits.map(([icon, text]) => (
-                <Badge key={text} bg="dark" className="border fw-normal"><i className={`bi bi-${icon} me-1`} />{text}</Badge>
+                <Badge key={text} bg="light" text="dark" className="border fw-normal"><i className={`bi bi-${icon} me-1`} />{text}</Badge>
               ))}
             </div>
-            <a className="btn btn-sm btn-outline-light" href={`https://youtu.be/${SONG.id}`} target="_blank" rel="noopener noreferrer">
+            <a className="btn btn-sm btn-outline-primary" href={`https://youtu.be/${SONG.id}`} target="_blank" rel="noopener noreferrer">
               <i className="bi bi-youtube me-1" />유튜브에서 보기
             </a>
           </Col>

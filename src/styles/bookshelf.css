@@ -1,8 +1,8 @@
-/* 책장(BookShelf) · 펼친 책(OpenBook) 스타일 — 색은 어두운 테마에 맞춘 고정값 */
+/* 책장(BookShelf) · 펼친 책(OpenBook) 스타일 — 색은 고정값 */
 
 /* ── 책장 ─────────────────────────────────────────── */
 .shelf-wall {
-  background: linear-gradient(rgba(255,255,255,.035), rgba(255,255,255,.015));
+  background: linear-gradient(#5a3d30, #42291f);   /* 밝은 화면 위의 짙은 원목 책장 */
   border-radius: .75rem;
   padding: 1rem 1rem .5rem;
   box-shadow: inset 0 0 40px rgba(0,0,0,.45);

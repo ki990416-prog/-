@@ -9,7 +9,7 @@ export default function RootLayout() {
 
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Navbar expand="md" bg="dark" data-bs-theme="dark" collapseOnSelect sticky="top" className="border-bottom">
+      <Navbar expand="md" collapseOnSelect sticky="top" className="camellia-nav">
         <Container>
           <Navbar.Brand as={NavLink} to="/">
             <i className="bi bi-signpost-2 me-2" />기억의 길 · 제주
@@ -36,7 +36,7 @@ export default function RootLayout() {
         </Container>
       </main>
 
-      <footer className="py-3 border-top bg-dark">
+      <footer className="py-3 camellia-footer">
         <Container className="small text-muted">
           제주대 청년도약 부트캠프 1기 · 데이터 출처: 공공데이터포털 외
         </Container>

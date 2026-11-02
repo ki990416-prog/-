@@ -84,7 +84,7 @@ api/        Vercel 서버 함수 (/api/파일이름) — 비밀 키는 여기서
 server/     공공데이터 호출 함수 (화면용 api/ 와 에이전트가 함께 사용)
   tour.js   weather.js   history.js   heritage.js(국가유산청, 4번째 API 후보)
 src/
-  main.jsx            테마(Bootswatch darkly) + 라우터 시작
+  main.jsx            테마(Bootswatch flatly + 연두·동백 색 덧칠) + 라우터 시작
   router.jsx          메뉴(NAV_ITEMS) + 주소별 페이지
   layouts/            공통 틀(메뉴·푸터·알림)
   store/              Zustand 전역 상태 (닉네임·알림·즐겨찾기·에이전트 대화)
@@ -94,7 +94,7 @@ src/
   components/         ItemCard · BookShelf · OpenBook · WeatherNote · YouTubeEmbed …
 ```
 
-**기술**: Vite + React 19 + React Router + Zustand + Bootstrap 5(Bootswatch `darkly`) + Supabase + Vercel 서버 함수 + Anthropic SDK
+**기술**: Vite + React 19 + React Router + Zustand + Bootstrap 5(Bootswatch `flatly` + 연두 바탕에 동백 붉은색 포인트) + Supabase + Vercel 서버 함수 + Anthropic SDK
 
 **왜 `/api` 서버 함수를 거치나**: ① 공공데이터·Claude 키를 브라우저에 노출하지 않기 위해, ② 브라우저 직접 호출 시 생기는 CORS 문제를 피하기 위해, ③ 같은 API 함수를 화면과 에이전트 도구가 함께 쓰기 위해서입니다.
 
