@@ -83,6 +83,13 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); }
 /* 노래 소개 가사 인용 */
 .song-quote { border-left: 3px solid var(--camellia); padding: .2rem 0 .2rem .9rem; margin: 0 0 1rem; color: rgba(43, 36, 34, .85); font-size: .92rem; line-height: 1.7; }
 
+/* 서비스 소개 페이지 */
+.about-logo { max-width: min(100%, 560px); height: auto; }
+.about-swatch { height: 44px; border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0; }
+.hero-about { color: #fff; font-size: .9rem; text-decoration: underline; text-underline-offset: 3px; text-shadow: 0 1px 6px rgba(0, 0, 0, .4); }
+.hero-about:hover { color: #bfe8f7; }
+.footer-link { color: var(--leaf-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
 /* 하늘색 보조 요소 — 정보·뉴스 구역 */
 .sky-title i { color: var(--sky-dark); }
 .news-section .list-group-item { border-left: 3px solid var(--sky); }

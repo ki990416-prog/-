@@ -6,6 +6,7 @@ import Heritage from './pages/Heritage'
 import History from './pages/History'
 import Agent from './pages/Agent'
 import My from './pages/My'
+import About from './pages/About'
 import NotFound from './pages/NotFound'
 
 // ── 메뉴 목록 ────────────────────────────────────────────
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
       { path: 'heritage', element: <Heritage /> },   // 국가유산청 (메뉴에는 없음 — 4번째 API 후보)
       { path: 'agent', element: <Agent /> },
       { path: 'my', element: <My /> },
+      { path: 'about', element: <About /> },   // 서비스 소개 (메뉴에는 없고 푸터·홈에서 연결)
     ],
   },
 ])

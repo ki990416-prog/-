@@ -1,4 +1,5 @@
 import { Badge, Col, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import WeatherBadge from '../components/WeatherBadge'
 import NewsSection from '../components/NewsSection'
 import YouTubeEmbed from '../components/YouTubeEmbed'
@@ -28,7 +29,10 @@ export default function Home() {
         <h1 className="fw-bold">기억의 길 · 제주</h1>
         <p className="hero-slogan">기억하고 · <b>화해하고</b> · 함께 가는 제주</p>
         <p className="lead">제주의 아픈 역사 현장을 존중하는 마음으로 찾아가는, 공공데이터 기반 AI 해설 가이드</p>
-        <WeatherBadge place="서귀포시" />
+        <div className="d-flex flex-wrap align-items-center gap-3">
+          <WeatherBadge place="서귀포시" />
+          <Link to="/about" className="hero-about">서비스 소개 보기 <i className="bi bi-arrow-right" /></Link>
+        </div>
       </section>
 
       <section className="mb-5">

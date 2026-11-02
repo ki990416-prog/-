@@ -41,7 +41,10 @@ export default function RootLayout() {
 
       <footer className="py-3 camellia-footer">
         <Container className="small text-muted d-flex flex-wrap justify-content-between align-items-center gap-2">
-          <span>제주대 청년도약 부트캠프 1기 · 데이터 출처: 공공데이터포털 외</span>
+          <span>
+            제주대 청년도약 부트캠프 1기 · 데이터 출처: 공공데이터포털 외 ·{' '}
+            <NavLink to="/about" className="footer-link">서비스 소개</NavLink>
+          </span>
           <StatusBar />
         </Container>
       </footer>
