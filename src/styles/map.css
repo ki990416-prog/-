@@ -1,0 +1,11 @@
+/* 장소 지도 — 핀은 동백 다홍색 */
+.places-map { border: 1px solid var(--bs-border-color); background: #fff; }
+.places-map-inner { height: 380px; width: 100%; z-index: 0; }
+.map-note { background: var(--leaf-soft); }
+@media (max-width: 575.98px) { .places-map-inner { height: 300px; } }
+
+.map-pin { background: none; border: 0; }
+.map-pin i { font-size: 2.1rem; line-height: 1; color: var(--camellia); filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .35)); }
+.map-pin:hover i, .leaflet-marker-icon.leaflet-interactive:focus i { color: var(--camellia-dark); }
+.leaflet-popup-content { margin: .8rem 1rem; font-family: inherit; }
+.leaflet-container a.btn-primary { color: #fff; }

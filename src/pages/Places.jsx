@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Alert, Badge, Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 import PageHeader from '../components/PageHeader'
 import ItemCard from '../components/ItemCard'
 import { Empty, ErrorAlert, Loading } from '../components/Status'
 import WeatherNote from '../components/WeatherNote'
+import PlacesMap, { hasCoord } from '../components/PlacesMap'
 import { fetchPlaces } from '../api/client'
 import { useAppStore } from '../store/useAppStore'
 
@@ -19,6 +20,8 @@ export default function Places() {
   const [places, setPlaces] = useState([])               // ① 데이터
   const [loading, setLoading] = useState(true)           // ② 로딩
   const [error, setError] = useState('')                 // ③ 에러
+  const [focusId, setFocusId] = useState(null)           // 카드에서 고른 장소 (지도 핀 열기)
+  const mapRef = useRef(null)
 
   // 검색어를 직접 넘기면(추천 버튼) 그 값으로, 아니면 입력창 값으로 검색
   async function search(e, kw = keyword) {
@@ -30,7 +33,13 @@ export default function Places() {
   }
   useEffect(() => { search() }, [])                      // 처음 한 번 자동 검색
 
-  function pick(kw) { setKeyword(kw); search(null, kw) }
+  function pick(kw) { setKeyword(kw); setFocusId(null); search(null, kw) }
+
+  // 카드를 누르면 지도 위치로 스크롤하고, 그 장소의 핀을 엽니다
+  function showOnMap(id) {
+    setFocusId(id)
+    mapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
 
   return (
     <>
@@ -58,14 +67,22 @@ export default function Places() {
 
       <ErrorAlert error={error} />
       {loading ? <Loading /> : places.length === 0 ? <Empty /> : (
-        <Row xs={1} sm={2} lg={3} className="g-3">
-          {places.map((p) => (
-            <Col key={p.id}>
-              <ItemCard title={p.title} subtitle={p.addr} image={p.image} badge={TYPES[p.type] ?? '장소'}
-                onSave={() => addFavorite({ source: 'tour', id: p.id, title: p.title })} />
-            </Col>
-          ))}
-        </Row>
+        <>
+          <div ref={mapRef}>
+            <PlacesMap places={places} focusId={focusId}
+              onSave={(p) => addFavorite({ source: 'tour', id: p.id, title: p.title })} />
+          </div>
+          <Row xs={1} sm={2} lg={3} className="g-3">
+            {places.map((p) => (
+              <Col key={p.id}>
+                <ItemCard title={p.title} subtitle={p.addr} image={p.image} badge={TYPES[p.type] ?? '장소'}
+                  onOpen={hasCoord(p) ? () => showOnMap(p.id) : undefined}
+                  onSave={() => addFavorite({ source: 'tour', id: p.id, title: p.title })} />
+              </Col>
+            ))}
+          </Row>
+          <div className="small text-muted mt-2">카드를 누르면 지도에서 그 장소의 핀이 열려요.</div>
+        </>
       )}
     </>
   )
