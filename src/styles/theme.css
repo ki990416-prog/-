@@ -1,5 +1,5 @@
 /* 테마 위에 덧입히는 우리 앱 스타일 — 색은 Bootstrap 변수(--bs-*)를 써서 테마를 바꿔도 어울리게 */
-body { font-family: 'Pretendard', system-ui, sans-serif; background: var(--bs-tertiary-bg); }
+body { font-family: 'Pretendard', system-ui, sans-serif; background: var(--bs-body-bg); }
 
 .hero {
   background: linear-gradient(135deg, #0f172a, #3b2f4a 60%, var(--bs-primary));

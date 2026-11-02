@@ -36,7 +36,7 @@ export default function RootLayout() {
         </Container>
       </main>
 
-      <footer className="py-3 border-top bg-body-tertiary">
+      <footer className="py-3 border-top bg-dark">
         <Container className="small text-muted">
           제주대 청년도약 부트캠프 1기 · 데이터 출처: 공공데이터포털 외
         </Container>
