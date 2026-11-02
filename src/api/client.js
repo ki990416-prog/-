@@ -32,6 +32,8 @@ export const fetchWeather = (place = '제주시') =>
   get(`/api/weather?place=${encodeURIComponent(place)}`)
 export const fetchHeritage = (keyword = '') =>
   get(`/api/heritage?keyword=${encodeURIComponent(keyword)}`)
+export const fetchHistory = (keyword = '') =>
+  get(`/api/history?keyword=${encodeURIComponent(keyword)}`)
 
 // STEP 6: 에이전트
 export const askAgent = (message, history) => post('/api/agent', { message, history })

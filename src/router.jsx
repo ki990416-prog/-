@@ -3,6 +3,7 @@ import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home'
 import Places from './pages/Places'
 import Heritage from './pages/Heritage'
+import History from './pages/History'
 import Agent from './pages/Agent'
 import My from './pages/My'
 import NotFound from './pages/NotFound'
@@ -14,7 +15,7 @@ import NotFound from './pages/NotFound'
 export const NAV_ITEMS = [
   { to: '/', label: '홈', icon: 'house' },
   { to: '/places', label: '기억의 장소', icon: 'geo-alt' },
-  { to: '/heritage', label: '역사 자료', icon: 'journal-text' },
+  { to: '/history', label: '역사 자료', icon: 'journal-text' },
   { to: '/agent', label: 'AI 해설사', icon: 'robot' },
   { to: '/my', label: '내 기록', icon: 'bookmark-heart' },
 ]
@@ -27,7 +28,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'places', element: <Places /> },
-      { path: 'heritage', element: <Heritage /> },
+      { path: 'history', element: <History /> },
+      { path: 'heritage', element: <Heritage /> },   // 국가유산청 (메뉴에는 없음 — 4번째 API 후보)
       { path: 'agent', element: <Agent /> },
       { path: 'my', element: <My /> },
     ],
