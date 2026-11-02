@@ -58,7 +58,7 @@ const toolImpl = {
   },
   async search_history({ keyword = '' } = {}) {
     const list = await searchHistory({ keyword });
-    return list.slice(0, 8).map((h) => ({ title: h.title, writer: h.writer, summary: h.summary.slice(0, 160) }));
+    return list.slice(0, 8).map((h) => ({ title: h.title, category: h.category, writer: h.writer, summary: h.summary.slice(0, 160) }));
   },
 };
 
