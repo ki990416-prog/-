@@ -23,7 +23,7 @@ export default function RootLayout() {
                 </Nav.Link>
               ))}
             </Nav>
-            {nickname && (
+            {nickname.trim() && (
               <Navbar.Text><i className="bi bi-person-circle me-1" />{nickname}</Navbar.Text>
             )}
           </Navbar.Collapse>

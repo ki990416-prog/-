@@ -11,7 +11,7 @@ export const useAppStore = create(
     (set, get) => ({
       // ① 사용자 — localStorage 에 저장되어 새로고침해도 유지
       nickname: '',
-      setNickname: (nickname) => set({ nickname: nickname.trim() }),
+      setNickname: (nickname) => set({ nickname }), // 입력 중에는 그대로 두고, 저장·조회할 때 trim 합니다
 
       // ② 알림(토스트) — 어느 페이지에서든 get().toast('메시지')
       toasts: [],
@@ -29,7 +29,7 @@ export const useAppStore = create(
         set({ favLoading: true })
         const { data, error } = await supabase
           .from('favorites').select('*')
-          .eq('nickname', get().nickname || '익명')
+          .eq('nickname', get().nickname.trim() || '익명')
           .order('created_at', { ascending: false })
         set({ favLoading: false })
         if (error) return get().toast(error.message, 'danger')
@@ -37,7 +37,14 @@ export const useAppStore = create(
       },
       addFavorite: async ({ source, id, title }) => {
         if (!supabase) return get().toast('Supabase 설정(.env.local)이 필요해요', 'warning')
-        const row = { nickname: get().nickname || '익명', source, item_id: String(id), title }
+        const nickname = get().nickname.trim() || '익명'
+        const item_id = String(id)
+        // 같은 항목을 이미 저장했는지 먼저 확인 (중복 저장 방지)
+        const { data: dup, error: dupError } = await supabase.from('favorites')
+          .select('id').eq('nickname', nickname).eq('source', source).eq('item_id', item_id).limit(1)
+        if (dupError) return get().toast(dupError.message, 'danger')
+        if (dup.length > 0) return get().toast('이미 저장한 항목이에요', 'warning')
+        const row = { nickname, source, item_id, title }
         const { data, error } = await supabase.from('favorites').insert(row).select().single()
         if (error) return get().toast(error.message, 'danger')
         set({ favorites: [data, ...get().favorites] })
