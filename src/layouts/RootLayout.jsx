@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { Container, Nav, Navbar, Toast, ToastContainer } from 'react-bootstrap'
 import { NAV_ITEMS } from '../router'
 import { useAppStore } from '../store/useAppStore'
+import StatusBar from '../components/StatusBar'
 
 export default function RootLayout() {
   const toasts = useAppStore((s) => s.toasts)
@@ -37,8 +38,9 @@ export default function RootLayout() {
       </main>
 
       <footer className="py-3 camellia-footer">
-        <Container className="small text-muted">
-          제주대 청년도약 부트캠프 1기 · 데이터 출처: 공공데이터포털 외
+        <Container className="small text-muted d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <span>제주대 청년도약 부트캠프 1기 · 데이터 출처: 공공데이터포털 외</span>
+          <StatusBar />
         </Container>
       </footer>
 
