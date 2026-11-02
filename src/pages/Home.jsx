@@ -4,6 +4,10 @@ import { ping } from '../api/client'
 import { isSupabaseReady, supabase } from '../lib/supabase'
 import { useAppStore } from '../store/useAppStore'
 import WeatherBadge from '../components/WeatherBadge'
+import YouTubeEmbed from '../components/YouTubeEmbed'
+
+// 홈에 소개하는 노래 (제작자 본인 채널의 영상)
+const SONG = { id: 'JPj0s9kb2sM', title: '네 글자로 🌴 | 이루기 힘든 두 글자, 그 너머의 네 글자' }
 
 // 홈 = 기획 소개 + "동작 체크" 대시보드
 // STEP 0~1 에서 이 화면의 체크가 모두 초록색이 되어야 다음 단계로 넘어갑니다.
@@ -33,6 +37,22 @@ export default function Home() {
         <h1 className="fw-bold">기억의 길 · 제주</h1>
         <p className="lead">제주의 아픈 역사 현장을 존중하는 마음으로 찾아가는, 공공데이터 기반 AI 해설 가이드</p>
         <WeatherBadge place="서귀포시" />
+      </section>
+
+      <section className="mb-5">
+        <Row className="g-4 align-items-center">
+          <Col lg={7}>
+            <YouTubeEmbed id={SONG.id} title={SONG.title} />
+          </Col>
+          <Col lg={5}>
+            <h5 className="fw-bold"><i className="bi bi-music-note-beamed me-2" />기억의 노래</h5>
+            <p className="mb-2">4·3을 주제로 직접 만든 노래예요. 영상을 눌러 들어 보세요.</p>
+            <p className="small text-muted mb-3">{SONG.title}</p>
+            <a className="btn btn-sm btn-outline-light" href={`https://youtu.be/${SONG.id}`} target="_blank" rel="noopener noreferrer">
+              <i className="bi bi-youtube me-1" />유튜브에서 보기
+            </a>
+          </Col>
+        </Row>
       </section>
 
       <h5 className="fw-bold mb-3"><i className="bi bi-clipboard-check me-2" />동작 체크</h5>
