@@ -9,6 +9,24 @@ description: >-
 
 # ig-carousel
 
+## 한국어 규칙 (이 섹션이 아래 영어 지침보다 우선한다)
+
+1. **결과는 전부 자연스러운 한국어 구어체로 쓴다.** 대본, 캡션, 댓글, 답글, DM,
+   설명, 보고 블록까지 모두. 번역투("~하는 것은 중요합니다", "~에 대해 이야기해
+   보겠습니다")가 아니라 사람이 실제로 말하듯이 쓴다. 아래 템플릿과 예시가
+   영어여도 구조만 가져오고 문장은 한국어로 새로 쓴다.
+2. **영어 기준 파이썬 채점 도구는 한국어에 쓰지 않는다.** `hookscore.py`,
+   `beats.py`, `detect.py`, `caption.py`는 단어와 패턴을 영어로만 세기 때문에
+   한국어에서는 결과가 틀린다. 대신 이 SKILL.md에 적힌 기준을 직접 읽고
+   판단해서, 숫자 점수 대신 항목마다 **통과** 또는 **고칠 점 + 이유**로
+   알려준다. 아래 지침이 "점수를 보여줘라", "50점 미만이면", "PASS가 나올 때까지
+   다시 돌려라"라고 하면 이 방식으로 바꿔서 따른다.
+3. **클로드가 기준표로 직접 매기는 점수는 그대로 보여준다.** 프로필 100점 채점처럼
+   파이썬 도구가 아니라 기준표를 읽고 매기는 점수는 한국어에도 그대로 쓴다.
+
+이 스킬에는 파이썬 채점 도구가 없다. 다른 스킬(`/ig-human` 등)을 거치라는
+지침이 있으면 그 스킬의 한국어 규칙을 따른다.
+
 Carousels are the highest-dwell format on the grid, because a swipe is an
 interaction and a scroll is not. They also get a second chance: Instagram can
 show a carousel again starting from a later slide to someone who did not engage
